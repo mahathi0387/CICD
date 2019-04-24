@@ -1,8 +1,8 @@
 ﻿
 param($counter)
 
-$counter1= release
-$counter2= snapshot
+$counter1= "release"
+$counter2= "snapshot"
 
 [xml]$xmldata = Get-Content "C:\Users\HAI\training\CICD\pom.xml"
 
