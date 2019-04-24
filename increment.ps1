@@ -14,7 +14,7 @@ Write-Host ("Current Minor: " + $vers.Minor)
 Write-Host ("Current Build: " + $vers.Build)
 
 
-If ($counter -eq "release") 
+If ($counter -eq 'release') 
 
 {
 $newminor= [int]$vers.minor +  1
@@ -22,15 +22,12 @@ $newminor= [int]$vers.minor +  1
 }
 
 
-If ($counter -eq "snapshot") 
+If ($counter -eq 'snapshot') 
 
 {
 $newbuild= [int]$vers.build +  1
 
 }
-
-
-Write-Host ("New minor: " + $newminor)
 
 $newVersion = (New-Object -TypeName 'system.Version' -ArgumentList @($vers.Major, $vers.Minor, $vers.Build)).ToString()
 write-host($newVersion)
