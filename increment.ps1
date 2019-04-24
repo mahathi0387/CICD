@@ -16,22 +16,14 @@ Write-Host ("Current Minor: " + $vers.Minor)
 Write-Host ("Current Build: " + $vers.Build)
 
 
-If ($counter.equals($counter1)) 
-
+If ($counter -eq $counter1) 
 {
 $newminor= [int]$vers.minor + 1
 
 }
 
 
-If ($counter.equals($counter2)) 
-
-{
-$newbuild= [int]$vers.build + 1
-
-}
-
-$newVersion = (New-Object -TypeName 'system.Version' -ArgumentList @($vers.Major, $vers.Minor, $vers.Build)).ToString()
+$newVersion = (New-Object -TypeName 'system.Version' -ArgumentList @($vers.Major, $newMinor, $vers.Build)).ToString()
 write-host($newVersion)
 
 $xmldata.project.version = $newVersion
