@@ -30,7 +30,7 @@ $newbuild= [int]$vers.build + 1
 }
 
 
-$newVersion = (New-Object -TypeName 'system.Version' -ArgumentList @($vers.Major, $newMinor, $newbuild)).ToString()
+$newVersion = (New-Object -TypeName 'system.Version' -ArgumentList @($vers.Major, $newminor, $newbuild)).ToString()
 write-host("current version:$newVersion")
 
 $xmldata.project.version = $newVersion
