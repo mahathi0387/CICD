@@ -1,4 +1,7 @@
-﻿[xml]$xmldata = Get-Content "C:\Users\HAI\training\CICD\pom.xml"
+﻿
+param($counter)
+
+[xml]$xmldata = Get-Content "C:\Users\HAI\training\CICD\pom.xml"
 
 $Version = $xmldata.project.version
 $VersionSplitHyphen = $Version -split '-'
@@ -10,7 +13,6 @@ Write-Host ("Current Major: " + $vers.Major)
 Write-Host ("Current Minor: " + $vers.Minor)
 Write-Host ("Current Build: " + $vers.Build)
 
-param($counter)
 
 If ($counter -eq "release") 
 
@@ -35,6 +37,7 @@ write-host($newVersion)
 
 $xmldata.project.version = $newVersion
 $xmldata.Save("C:\Users\HAI\maventest\Maventestapp\pom.xml")
+
 
 
 
