@@ -16,18 +16,18 @@ Write-Host ("Current Minor: " + $vers.Minor)
 Write-Host ("Current Build: " + $vers.Build)
 
 
-If ($counter -eq $counter1) 
+If ($counter.equals($counter1)) 
 
 {
-$newminor= [int]$vers.minor +  1
+$newminor= [int]$vers.minor + 1
 
 }
 
 
-If ($counter -eq $counter2) 
+If ($counter.equals($counter2)) 
 
 {
-$newbuild= [int]$vers.build +  1
+$newbuild= [int]$vers.build + 1
 
 }
 
