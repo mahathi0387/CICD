@@ -1,6 +1,9 @@
 ﻿
 param($counter)
 
+$counter1= release
+$counter2= snapshot
+
 [xml]$xmldata = Get-Content "C:\Users\HAI\training\CICD\pom.xml"
 
 $Version = $xmldata.project.version
@@ -13,7 +16,7 @@ Write-Host ("Current Minor: " + $vers.Minor)
 Write-Host ("Current Build: " + $vers.Build)
 
 
-If ($counter -eq 'release') 
+If ($counter -eq $counter1) 
 
 {
 $newminor= [int]$vers.minor +  1
@@ -21,7 +24,7 @@ $newminor= [int]$vers.minor +  1
 }
 
 
-If ($counter -eq 'snapshot') 
+If ($counter -eq $counter2) 
 
 {
 $newbuild= [int]$vers.build +  1
