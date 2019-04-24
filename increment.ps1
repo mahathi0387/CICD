@@ -10,7 +10,7 @@ Write-Host ("Current Major: " + $vers.Major)
 Write-Host ("Current Minor: " + $vers.Minor)
 Write-Host ("Current Build: " + $vers.Build)
 
-Param($counter)
+param($counter)
 
 If ($counter -eq "release") 
 
