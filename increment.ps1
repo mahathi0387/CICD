@@ -22,9 +22,16 @@ $newminor= [int]$vers.minor + 1
 
 }
 
+If ($counter -eq $counter2) 
 
-$newVersion = (New-Object -TypeName 'system.Version' -ArgumentList @($vers.Major, $newMinor, $vers.Build)).ToString()
-write-host($newVersion)
+{
+$newbuild= [int]$vers.build + 1
+
+}
+
+
+$newVersion = (New-Object -TypeName 'system.Version' -ArgumentList @($vers.Major, $newMinor, $newbuild)).ToString()
+write-host("current version:$newVersion")
 
 $xmldata.project.version = $newVersion
 $xmldata.Save("C:\Users\HAI\training\CICD\pom.xml")
