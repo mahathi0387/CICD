@@ -1,16 +1,40 @@
-﻿[xml]$xmldata = Get-Content "C:\Users\HAI\maventest\Maventestapp\pom.xml"
-
-
-
+﻿[xml]$xmldata = Get-Content "C:\Users\HAI\training\CICD\pom.xml"
 
 $Version = $xmldata.project.version
 $VersionSplitHyphen = $Version -split '-'
 write-host "version is" $VersionSplitHyphen[0]
+write-host "version is" $version
+
+$vers=[system.version]$VersionSplitHyphen[0]
+Write-Host ("Current Major: " + $vers.Major)
+Write-Host ("Current Minor: " + $vers.Minor)
+Write-Host ("Current Build: " + $vers.Build)
+
+Param($counter)
+
+If ($counter -eq "release") 
+
+{
+$newminor= [int]$vers.minor +  1
+
+}
 
 
-#$fileContents  = ($VersionSplitHyphen[0]| Select -Last 1)
-#$parts=$fileContents.Split('=')
-#$versionString = $parts[1].Replace('"','"')
-#$version = [Version]$versionString
-#$newVersionString = (New-Object -TypeName 'System.Version' -ArgumentList @($version.Major, ($version.Minor+1), $version.Build)).ToString()
-#(gc $Verfile) -replace "$versionString", "$newVersionString" | sc $Verfile
+If ($counter -eq "snapshot") 
+
+{
+$newbuild= [int]$vers.build +  1
+
+}
+
+
+Write-Host ("New minor: " + $newminor)
+
+$newVersion = (New-Object -TypeName 'system.Version' -ArgumentList @($vers.Major, $vers.Minor, $vers.Build)).ToString()
+write-host($newVersion)
+
+$xmldata.project.version = $newVersion
+$xmldata.Save("C:\Users\HAI\maventest\Maventestapp\pom.xml")
+
+
+
