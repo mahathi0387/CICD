@@ -6,7 +6,6 @@ param($counter)
 $Version = $xmldata.project.version
 $VersionSplitHyphen = $Version -split '-'
 write-host "version is" $VersionSplitHyphen[0]
-write-host "version is" $version
 
 $vers=[system.version]$VersionSplitHyphen[0]
 Write-Host ("Current Major: " + $vers.Major)
@@ -33,7 +32,7 @@ $newVersion = (New-Object -TypeName 'system.Version' -ArgumentList @($vers.Major
 write-host($newVersion)
 
 $xmldata.project.version = $newVersion
-$xmldata.Save("C:\Users\HAI\maventest\Maventestapp\pom.xml")
+$xmldata.Save("C:\Users\HAI\training\CICD\pom.xml")
 
 
 
