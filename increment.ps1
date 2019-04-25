@@ -17,21 +17,19 @@ $vers=[system.version]$VersionSplitHyphen[0]
 
 If ($counter -eq $counter1) 
 {
-
-$vers.minor++
+$newminor= [int]$vers.minor + 1
 
 }
 
 If ($counter -eq $counter2) 
 
 {
-
-$vers.Build++
-
+$newbuild= [int]$vers.build + 1
 
 }
 
-$newVersion = (New-Object -TypeName 'system.Version' -ArgumentList @($vers.Major, $vers.Minor, $vers.Build)).ToString()
+
+$newVersion = (New-Object -TypeName 'system.Version' -ArgumentList @($vers.Major, $newminor, $newbuild)).ToString()
 Write-host("New version:" + $newVersion)
 
 $xmldata.project.version = $newVersion
