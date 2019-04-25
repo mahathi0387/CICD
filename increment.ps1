@@ -15,21 +15,28 @@ $vers=[system.version]$VersionSplitHyphen[0]
 #Write-Host ("Current Minor: " + $vers.Minor)
 #Write-Host ("Current Build: " + $vers.Build)
 
-If ($counter -eq $counter1) 
-{
-$newminor= [int]$vers.minor + 1
 
-}
+$newminor = $vers.minor
+
+If ($counter -eq $counter1) 
+
+{
+ $newminor= [int]$vers.minor + 1
+ 
+ }
+
+$newbuild = $vers.Build
 
 If ($counter -eq $counter2) 
 
 {
+
 $newbuild= [int]$vers.build + 1
 
 }
 
 
-$newVersion = (New-Object -TypeName 'system.Version' -ArgumentList @($vers.Major, $newminor, $newbuild)).ToString()
+$newVersion = (New-Object -TypeName 'system.Version' -ArgumentList @($vers.Major, $vers.Minor, $newbuild)).ToString()
 Write-host("New version:" + $newVersion)
 
 $xmldata.project.version = $newVersion
