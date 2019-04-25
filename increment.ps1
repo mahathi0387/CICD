@@ -18,7 +18,7 @@ $vers=[system.version]$VersionSplitHyphen[0]
 If ($counter -eq $counter1) 
 {
 
-$vers.minor++
+$vers.minor+1
 
 }
 
@@ -26,7 +26,7 @@ If ($counter -eq $counter2)
 
 {
 
-$vers.Build++
+$vers.Build+1
 
 }
 
