@@ -11,27 +11,28 @@ $VersionSplitHyphen = $Version -split '-'
 write-host "version is" $VersionSplitHyphen[0]
 
 $vers=[system.version]$VersionSplitHyphen[0]
-Write-Host ("Current Major: " + $vers.Major)
-Write-Host ("Current Minor: " + $vers.Minor)
-Write-Host ("Current Build: " + $vers.Build)
-
+#Write-Host ("Current Major: " + $vers.Major)
+#Write-Host ("Current Minor: " + $vers.Minor)
+#Write-Host ("Current Build: " + $vers.Build)
 
 If ($counter -eq $counter1) 
 {
-$newminor= [int]$vers.minor + 1
+
+$vers.minor++
 
 }
 
 If ($counter -eq $counter2) 
 
 {
-$newbuild= [int]$vers.build + 1
+
+$vers.Build++
 
 }
 
 
 $newVersion = (New-Object -TypeName 'system.Version' -ArgumentList @($vers.Major, $newminor, $newbuild)).ToString()
-write-host("current version:$newVersion")
+Write-host("New version:" + $newVersion)
 
 $xmldata.project.version = $newVersion
 $xmldata.Save("C:\Users\HAI\training\CICD\pom.xml")
