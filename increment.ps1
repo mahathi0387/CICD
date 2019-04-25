@@ -18,7 +18,7 @@ $vers=[system.version]$VersionSplitHyphen[0]
 If ($counter -eq $counter1) 
 {
 
-$vers.minor+1
+$vers.minor++
 
 }
 
@@ -26,10 +26,10 @@ If ($counter -eq $counter2)
 
 {
 
-$vers.Build+1
+$vers.Build++
+
 
 }
-
 
 $newVersion = (New-Object -TypeName 'system.Version' -ArgumentList @($vers.Major, $vers.Minor, $vers.Build)).ToString()
 Write-host("New version:" + $newVersion)
