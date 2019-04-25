@@ -16,7 +16,7 @@ $vers=[system.version]$VersionSplitHyphen[0]
 #Write-Host ("Current Build: " + $vers.Build)
 
 
-$newminor = $vers.minor
+
 
 If ($counter -eq $counter1) 
 
@@ -25,7 +25,7 @@ If ($counter -eq $counter1)
  
  }
 
-$newbuild = $vers.Build
+
 
 If ($counter -eq $counter2) 
 
