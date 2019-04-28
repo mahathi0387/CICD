@@ -42,6 +42,12 @@ Write-host("New version:" + $newVersion)
 $xmldata.project.version = $newVersion
 $xmldata.Save("C:\Users\HAI\training\CICD\pom.xml")
 
+git checkout master
+
+git add .
+git commit -m "xbxnbv"
+git push
+
 
 
 
