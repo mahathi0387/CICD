@@ -41,7 +41,7 @@ Write-host("New version:" + $newVersion)
 
 $xmldata.project.version = $newVersion
 $xmldata.Save("C:\Users\HAI\training\CICD\pom.xml")
-$xmldata.save("$ENV:WORKSPACE\CICD\pom.xml")
+$xmldata.save("$ENV:WORKSPACE\pom.xml")
 
 
 
