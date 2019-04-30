@@ -4,7 +4,7 @@ param($counter)
 $counter1= "release"
 $counter2= "snapshot"
 
-[xml]$xmldata = Get-Content "C:\Users\HAI\training\CICD\pom.xml"
+[xml]$xmldata = Get-Content "$ENV:WORKSPACE\pom.xml"
 
 $Version = $xmldata.project.version
 $VersionSplitHyphen = $Version -split '-'
